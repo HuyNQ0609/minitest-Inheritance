@@ -72,7 +72,7 @@ public class Main {
     public static int Price(Book[] arr) {
         int count = 0;
         for (Book i: arr) {
-            if(i.getPrice() < 100) {
+            if(i instanceof FictionBook && i.getPrice() < 100) {
                 count++;
             }
         }
