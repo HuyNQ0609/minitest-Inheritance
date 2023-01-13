@@ -4,7 +4,9 @@ import books.Book;
 import books.ProgrammingBook;
 import books.FictionBook;
 
+import java.sql.SQLOutput;
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,9 +29,14 @@ public class Main {
                 System.out.println(book);
             }
         }
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the language: ");
+        String language = input.nextLine();
+        System.out.println("Enter the category: ");
+        String category = input.nextLine();
         System.out.println("Total of 10 books are: " + Total(books) +"$");
-        System.out.println("The number of books whose language is java: " + Java(books));
-        System.out.println("The number of books whose category is fiction: " + Fiction(books));
+        System.out.println("The number of books whose language is " + language + ": " + Java(books, language));
+        System.out.println("The number of books whose category is " + category + ": " + Fiction(books, category));
         System.out.println("Number of books priced less than 100: " + Price(books));
     }
 
@@ -45,10 +52,10 @@ public class Main {
 
     //*------------------------------Language is Java-----------------------------------*/
 
-    public static int Java(Book[] arr) {
+    public static int Java(Book[] arr, String language) {
         int count = 0;
         for (Book i: arr) {
-            if (i instanceof ProgrammingBook && ((ProgrammingBook) i).getLanguage().equals("Java")) {
+            if (i instanceof ProgrammingBook && ((ProgrammingBook) i).getLanguage().equals(language)) {
                     count++;
             }
         }
@@ -57,10 +64,10 @@ public class Main {
 
     //*------------------------------Category is fiction-----------------------------------*/
 
-    public static int Fiction(Book[] arr) {
+    public static int Fiction(Book[] arr, String category) {
         int count = 0;
         for (Book i: arr) {
-            if (i instanceof FictionBook && ((FictionBook) i).getCategory().equals("fiction")) {
+            if (i instanceof FictionBook && ((FictionBook) i).getCategory().equals(category)) {
                     count++;
             }
         }
