@@ -55,7 +55,7 @@ public class Main {
         return count;
     }
 
-    //*------------------------------Language is Java-----------------------------------*/
+    //*------------------------------Category is fiction-----------------------------------*/
 
     public static int Fiction(Book[] arr) {
         int count = 0;
